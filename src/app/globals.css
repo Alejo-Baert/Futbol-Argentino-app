@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --white: white;
+  --black: #222;
+}
+
+/* TEAM NAME */
+.swiper-slide-prev .styles-teamname {
+  opacity: 0
+}
+
+.swiper-slide-next .styles-teamname {
+  opacity: 0
+}
+
+.swiper-slide .styles-teamname:not(.swiper-slide-active .styles-teamname) {
+  opacity: 0
+}
+
+/* TEAM IMAGENES */
+.swiper-slide-prev,
+.swiper-slide-next {
+  opacity: 0.5;
+  /* 
+  transition: all;
+  transition-duration: 150ms; */
+}
+
+.swiper-slide-active img {
+  transform: scale(1.5);
+  transition-duration: 200;
+}
+
+.swiper-slide:not(.swiper-slide-active) {
+  opacity: 0.5;
+  transform: scale(0.8);
+  transition-duration: 200;
+}
+
+.swiper-slide img:not(.swiper-slide-active img) {
+  transform: scale(0.8);
+  transition-duration: 200;
+}
+
+.swiper-button-prev {
+  background-image: url("/arrowleft.svg");
+}
+
+.swiper-button-next {
+  background-image: url("/arrowright.svg");
+  display: none;
+}
+
+
+/* Loader */
+.loader:before,
+.loader:after {
+  content: '';
+  border-radius: 50%;
+  position: absolute;
+  inset: 0;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3) inset;
+  margin: 100px;
+}
+
+.loader:after {
+  box-shadow: 0 8px 0 #61a5ff inset;
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0)
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+
+/* .swiper-slide-prev img,
+.swiper-slide-next img{
+  transform: scale(0.8);
+  
+} */
+
+/* Loader */
+/* .loader:before{
+  content: ''; border-radius: 50%; position: fixed; inset: 0; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3) inset; height: 300px; width: 300px;
+}
+  @keyframes rotate { 0% {  transform: rotate(0)} 100% { transform: rotate(360deg)} }  */
+
+@media screen and (max-width: 500px) {
+  .loader:before {
+    margin: 0px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .loader:before {
+    width: 250px;
+    height:250px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .loader:after {
+    display: none;
+  }
+}
