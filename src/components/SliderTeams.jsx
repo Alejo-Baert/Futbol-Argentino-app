@@ -46,6 +46,7 @@ const SliderTeams = () => {
                                             alt={`club-${equipo.name}`}
                                             width="350"
                                             height="350"
+                                            priority
                                         />
                                         <p className="font-bold text-[18px] uppercase text-center">{equipo.name}</p>
                                     </div>

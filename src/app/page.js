@@ -1,5 +1,5 @@
 import SliderTeams from "@/components/SliderTeams"
-import videoBg from '../../public/video/video.mp4'
+import videoBg from '../assets/video/video.mp4'
 
 export default function Home() {
   return (
