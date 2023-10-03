@@ -75,7 +75,7 @@ const Sidebar = () => {
 
                     <div>
                         <div className="text-center py-4">
-                            {teamRank ? (
+                            {teamRank && teamRank ? (
                                 <span className={`flex justify-center items-center gap-2 py-2`}>
                                     <p className="font-bold text-2xl">{teamRank}°</p>
                                     <p>Posición en Liga</p>
@@ -91,7 +91,7 @@ const Sidebar = () => {
 
                         <div className={`${styles.containerStyles} ${styles.containerStyles} ${toggleDarkMode ? styles.containerLightSidebar : styles.containerDarkSidebar} mx-4`}>
                             <h1 className={`${styles.headText} ${toggleDarkMode ? styles.headTextLight : styles.headTextDark}`}>Próximo partido</h1>
-                            {nextMatch ? (
+                            {nextMatch && nextMatch ? (
                                 <div className="flex flex-col py-4 items-center gap-4">
                                     <span className={` flex flex-col gap-2 items-center`}>
                                         <p className="text-lg font-semibold uppercase">{condition}</p>

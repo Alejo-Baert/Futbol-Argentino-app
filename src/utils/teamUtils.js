@@ -43,15 +43,16 @@ export function useSelectedTeamGroup(teams) {
 }
 
 export function useGroupA(selectedTeamGroup, selectedTeam) {
-    const groupA = selectedTeamGroup
     const { toggleDarkMode } = useTogglesAndToken()
+
+    const groupA = selectedTeamGroup
 
     return groupA.map((team, index) => {
         const isSameTeam = team.team.name === selectedTeam.nameForAPI
 
-        let backgroundColor = toggleDarkMode ? 'border-gray-200' : 'border-gray-700'
+        let backgroundColor = toggleDarkMode && toggleDarkMode ? 'border-gray-200' : 'border-gray-700'
 
-        let bgSelectedTeam = toggleDarkMode ? 'bg-gray-200' : 'bg-gray-700'
+        let bgSelectedTeam = toggleDarkMode && toggleDarkMode ? 'bg-gray-200' : 'bg-gray-700'
 
         return (
             <tr className={`${isSameTeam && `${bgSelectedTeam} uppercase`} ${backgroundColor} border-b `} key={index}>
@@ -69,9 +70,9 @@ export function useGroupA(selectedTeamGroup, selectedTeam) {
 }
 
 export function useGroupB(selectedTeamGroup, selectedTeam) {
+    const { toggleDarkMode } = useTogglesAndToken()
 
     const groupB = selectedTeamGroup
-    const { toggleDarkMode } = useTogglesAndToken()
 
     return groupB.map((team, index) => {
 

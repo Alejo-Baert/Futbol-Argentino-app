@@ -1,22 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpack(config, { isServer }) {
-    const prefix = config.assetPrefix ?? config.basePath ?? '';
+  webpack: (config) => {
     config.module.rules.push({
       test: /\.mp4$/,
-      use: [{
+      use: {
         loader: 'file-loader',
         options: {
-          publicPath: `${prefix}/_next/static/media/`,
-          outputPath: `${isServer ? '../' : ''}static/media/`,
-          name: '[name].[hash].[ext]',
+          name: '[name].[ext]',
+          publicPath: '/_next/static/videos',
+          outputPath: 'static/videos',
         },
-      }],
+      },
     });
     return config
   },
   env: {
-    API_KEY_FUTBOL: 'e9cba3e0983b97eea5cb86697ab6e70c'
+    API_KEY_FUTBOL: process.env.API_KEY
   },
   images: {
     domains: ["media-4.api-sports.io"],

@@ -19,7 +19,12 @@ export function TogglesAndTokenProvider({ children }) {
     const [toggleSidebar, setToggleSidebar] = useState(false)
     const [toggleDarkMode, setToggleDarkMode] = useState(false)
 
+    const [tokenTeam, setTokenTeam] = useState(null)
     const [screenSize, setScreenSize] = useState(undefined)
+
+    const selectedTeam = equipos.find((equipo) => {
+        return equipo.nameForAPI === tokenTeam
+    })
 
     useEffect(() => {
         const handleResize = () => setScreenSize(window.innerWidth)
@@ -32,16 +37,14 @@ export function TogglesAndTokenProvider({ children }) {
         }
     }, [])
 
-    const [tokenTeam, setTokenTeam] = useState(null)
-
     useEffect(() => {
         if (typeof window !== 'undefined' && window.localStorage) {
             let getTeam = localStorage.getItem("selectedTeam")
-            
+
             setTokenTeam(getTeam)
         }
     }, [])
-    
+
     useEffect(() => {
         if (tokenTeam && pathname === '/') {
             router.push('/inicio')
@@ -49,16 +52,13 @@ export function TogglesAndTokenProvider({ children }) {
         }
     }, [pathname, tokenTeam])
 
-    const selectedTeam = equipos.find((equipo) => {
-        return equipo.nameForAPI === tokenTeam
-    })
-
     useEffect(() => {
         if (!selectedTeam && pathname === '/inicio') {
             router.push('/')
             return
         }
     }, [pathname, selectedTeam])
+
 
     const handleTeamSelection = (teamName) => {
         if (typeof window !== "undefined" && window.localStorage) {
