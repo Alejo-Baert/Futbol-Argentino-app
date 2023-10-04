@@ -101,7 +101,7 @@ export function useGroupB(selectedTeamGroup, selectedTeam) {
 
 export function useGroup(selectedTeamGroup, selectedTeam, toggleDarkMode) {
 
-    /* const group = selectedTeamGroup
+    const group = selectedTeamGroup
 
     return group.map((team, index) => {
 
@@ -122,12 +122,12 @@ export function useGroup(selectedTeamGroup, selectedTeam, toggleDarkMode) {
                 <td>{team.all.played}</td>
             </tr>
         )
-    }) */
+    })
 }
 
 export function useGroupAorB() {
 
-    /* const { selectedTeam, toggleDarkMode } = useTogglesAndToken()
+    const { selectedTeam, toggleDarkMode } = useTogglesAndToken()
 
     const teams = useTeams()
     const selectedTeamGroup = useSelectedTeamGroup(teams)
@@ -144,7 +144,7 @@ export function useGroupAorB() {
     if (groupName === 'Group A' || groupName === 'Group B') {
         groupContent = useGroup(selectedTeamGroup, selectedTeam, toggleDarkMode)
     }
-    return { groupContent, formattedGroupName } */
+    return { groupContent, formattedGroupName }
 }
 
 export function useTeamAll() {
