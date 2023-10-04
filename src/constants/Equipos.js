@@ -8,7 +8,7 @@ export const equipos = [
     { id: 7, name: 'boca juniors', img: '/../../images/equipos/boca.png', nameForAPI: 'Boca Juniors' },
     { id: 8, name: 'central córdoba', img: '/../../images/equipos/centralcordoba.png', nameForAPI: 'Central Cordoba de Santiago' },
     { id: 9, name: 'colón', img: '/../../images/equipos/colon.png', nameForAPI: 'Colon Santa Fe' },
-    { id: 10, name: 'defensa y justicia', img: '/../../images/equipos/defensa.png', nameForAPI: 'Defensa y Justicia' },
+    { id: 10, name: 'defensa y justicia', img: '/../../images/equipos/defensa.png', nameForAPI: 'Defensa Y Justicia' },
     { id: 11, name: 'estudiantes L.P.', img: '/../../images/equipos/estudiantes.png', nameForAPI: 'Estudiantes L.P.' },
     { id: 12, name: 'gimnasia L.P.', img: '/../../images/equipos/gimnasia.png', nameForAPI: 'Gimnasia L.P.' },
     { id: 13, name: 'godoy cruz', img: '/../../images/equipos/godoycruz.png', nameForAPI: 'Godoy Cruz' },
