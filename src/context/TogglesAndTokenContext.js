@@ -37,27 +37,45 @@ export function TogglesAndTokenProvider({ children }) {
         }
     }, [])
 
+    /* useEffect(() => {
+        if (typeof window !== 'undefined' && window.localStorage) {
+            let getTeam = localStorage.getItem("selectedTeam")
+
+            setTokenTeam(getTeam)
+        }
+    }, [tokenTeam]) */
+
+    /*  useEffect(() => {
+         if (tokenTeam && pathname === '/') {
+             router.push('/inicio')
+             return
+         }
+     }, [pathname, tokenTeam])
+ 
+     useEffect(() => {
+         if (!selectedTeam && pathname === '/inicio') {
+             router.push('/')
+             return
+         }
+     }, [pathname, selectedTeam]) */
+
     useEffect(() => {
         if (typeof window !== 'undefined' && window.localStorage) {
             let getTeam = localStorage.getItem("selectedTeam")
 
             setTokenTeam(getTeam)
         }
-    }, [tokenTeam])
 
-    useEffect(() => {
         if (tokenTeam && pathname === '/') {
             router.push('/inicio')
             return
         }
-    }, [pathname, tokenTeam])
 
-    useEffect(() => {
         if (!selectedTeam && pathname === '/inicio') {
             router.push('/')
             return
         }
-    }, [pathname, selectedTeam])
+    }, [pathname, selectedTeam, tokenTeam])
 
 
     const handleTeamSelection = (teamName) => {
