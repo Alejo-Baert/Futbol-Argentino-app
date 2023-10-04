@@ -1,4 +1,4 @@
-import { useFixtures } from "@/libs/useTeams"
+/* import { useFixtures } from "@/libs/useTeams"
 
 export function useFixtureDate() {
     const fixtures = useFixtures()
@@ -21,7 +21,6 @@ export function useFixtureDate() {
         }
     })
 
-
     if (nextMatch) {
         const dateObj = new Date(nextMatch.fixture.date);
         const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
@@ -31,4 +30,4 @@ export function useFixtureDate() {
     }
 
     return nextMatch
-}
+} */

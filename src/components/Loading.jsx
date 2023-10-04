@@ -1,5 +1,3 @@
-"use client"
-
 import { twMerge } from 'tailwind-merge'
 
 const Loading = ({ height, size, textClassname }) => {
