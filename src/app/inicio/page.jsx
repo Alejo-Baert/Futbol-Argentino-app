@@ -12,7 +12,7 @@ const page = () => {
 
   return (
     <section className="bg-gray-900">
-      {selectedTeam ? (
+      {selectedTeam && selectedTeam ? (
         <div className="font-barlow lg:flex">
           <Sidebar />
           <Dashboard />
