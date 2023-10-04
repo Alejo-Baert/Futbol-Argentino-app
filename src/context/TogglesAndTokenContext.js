@@ -43,7 +43,7 @@ export function TogglesAndTokenProvider({ children }) {
 
             setTokenTeam(getTeam)
         }
-    }, [])
+    }, [tokenTeam])
 
     useEffect(() => {
         if (tokenTeam && pathname === '/') {
