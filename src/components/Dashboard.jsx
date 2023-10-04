@@ -93,7 +93,7 @@ const Dashboard = () => {
                     </div>
 
                     {/* LADO DERECHO - TABLA */}
-                    <Tabla />
+                    {selectedTeam && <Tabla />}
 
                 </div>
             </div>

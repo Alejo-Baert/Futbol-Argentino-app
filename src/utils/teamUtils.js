@@ -11,15 +11,19 @@ export function useSelectedTeam() {
 
     let foundTeam = null
 
-    for (const group of teams) {
-        foundTeam = group.find((teamData) => {
-            return teamData.team.name === selectedTeamName
-        })
+    if (teams && teams.length > 0) {
 
-        if (foundTeam) {
-            break
+        for (const group of teams) {
+            foundTeam = group.find((teamData) => {
+                return teamData.team.name === selectedTeamName
+            })
+
+            if (foundTeam) {
+                break
+            }
         }
     }
+
 
     return foundTeam
 }
@@ -42,7 +46,7 @@ export function useSelectedTeamGroup(teams) {
     return []
 }
 
-export function useGroupA(selectedTeamGroup, selectedTeam) {
+/* export function useGroupA(selectedTeamGroup, selectedTeam) {
     const { toggleDarkMode } = useTogglesAndToken()
 
     const groupA = selectedTeamGroup
@@ -61,7 +65,6 @@ export function useGroupA(selectedTeamGroup, selectedTeam) {
                     <img src={team.team.logo} className="w-12 p-2" alt={`logo - ${team.team.name}`} />
                     {team.team.name}
                 </td>
-                {/* <td>{team.all.goals.for}</td> */}
                 <td className="font-bold">{team.points}</td>
                 <td>{team.all.played}</td>
             </tr>
@@ -89,6 +92,32 @@ export function useGroupB(selectedTeamGroup, selectedTeam) {
                     <img src={team.team.logo} className="w-12 p-2" alt={`logo - ${team.team.name}`} />
                     {team.team.name}
                 </td>
+                <td className="font-bold">{team.points}</td>
+                <td>{team.all.played}</td>
+            </tr>
+        )
+    })
+} */
+
+export function useGroup(selectedTeamGroup, selectedTeam, toggleDarkMode) {
+
+    const group = selectedTeamGroup
+
+    return group.map((team, index) => {
+
+        const isSameTeam = team.team.name === selectedTeam.nameForAPI
+
+        let backgroundColor = toggleDarkMode ? 'border-gray-200' : 'border-gray-700'
+
+        let bgSelectedTeam = toggleDarkMode ? 'bg-gray-200' : 'bg-gray-700'
+
+        return (
+            <tr className={`${isSameTeam && `${bgSelectedTeam} uppercase`} ${backgroundColor} border-b`} key={index}>
+                <td className="font-semibold">{team.rank}</td>
+                <td className={`flex items-center lg:gap-4 gap-2 ${isSameTeam ? 'font-bold' : 'font-medium'} lg:text-base text-sm`}>
+                    <img src={team.team.logo} className="w-12 p-2" alt={`logo - ${team.team.name}`} />
+                    {team.team.name}
+                </td>
                 {/* <td>{team.all.goals.for}</td> */}
                 <td className="font-bold">{team.points}</td>
                 <td>{team.all.played}</td>
@@ -97,7 +126,13 @@ export function useGroupB(selectedTeamGroup, selectedTeam) {
     })
 }
 
-export function useGroupAorB(selectedTeamGroup, selectedTeam) {
+export function useGroupAorB() {
+
+    const { selectedTeam, toggleDarkMode } = useTogglesAndToken()
+
+    const teams = useTeams()
+    const selectedTeamGroup = useSelectedTeamGroup(teams)
+
     if (!selectedTeamGroup || selectedTeamGroup.length === 0) {
         return { groupContent: null, formattedGroupName: null };
     }
@@ -107,12 +142,9 @@ export function useGroupAorB(selectedTeamGroup, selectedTeam) {
 
     let groupContent = null;
 
-    if (groupName === 'Group A') {
-        groupContent = useGroupA(selectedTeamGroup, selectedTeam);
-    } else if (groupName === 'Group B') {
-        groupContent = useGroupB(selectedTeamGroup, selectedTeam);
+    if (groupName === 'Group A' || groupName === 'Group B') {
+        groupContent = useGroup(selectedTeamGroup, selectedTeam, toggleDarkMode)
     }
-
     return { groupContent, formattedGroupName }
 }
 
@@ -125,17 +157,13 @@ export function useTeamRank() {
     const selectedTeam = useSelectedTeam()
     return selectedTeam && selectedTeam.rank
 }
+
 /* 
 export function useTeamPoints() {
     const selectedTeam = useSelectedTeam()
     return selectedTeam && selectedTeam.points
 }
-export function useTeamLogo() {
-    const selectedTeam = useSelectedTeam()
-    return selectedTeam && selectedTeam.team.logo
-}
 export function useTeamGroup() {
-
     const selectedTeam = useSelectedTeam()
     return selectedTeam && selectedTeam.group
 }  */
