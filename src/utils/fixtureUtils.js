@@ -1,5 +1,3 @@
-"use client"
-
 import { useFixtures } from "@/libs/useTeams"
 
 export function useFixtureDate() {

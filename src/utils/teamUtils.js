@@ -1,5 +1,3 @@
-"use client"
-
 import { useTogglesAndToken } from "@/context/TogglesAndTokenContext"
 import useTeams from "@/libs/useTeams"
 
@@ -100,6 +98,27 @@ export function useGroupB(selectedTeamGroup, selectedTeam) {
         )
     })
 } */
+export function useGroupAorB() {
+
+    const { selectedTeam, toggleDarkMode } = useTogglesAndToken()
+
+    const teams = useTeams()
+    const selectedTeamGroup = useSelectedTeamGroup(teams)
+
+    if (!selectedTeamGroup || selectedTeamGroup.length === 0) {
+        return { groupContent: null, formattedGroupName: null };
+    }
+
+    const groupName = selectedTeamGroup[0].group;
+    const formattedGroupName = groupName.replace('Group ', '');
+
+    let groupContent = null;
+
+    if (groupName === 'Group A' || groupName === 'Group B') {
+        groupContent = useGroup(selectedTeamGroup, selectedTeam, toggleDarkMode)
+    }
+    return { groupContent, formattedGroupName }
+}
 
 export function useGroup(selectedTeamGroup, selectedTeam, toggleDarkMode) {
 
@@ -125,28 +144,6 @@ export function useGroup(selectedTeamGroup, selectedTeam, toggleDarkMode) {
             </tr>
         )
     })
-}
-
-export function useGroupAorB() {
-
-    const { selectedTeam, toggleDarkMode } = useTogglesAndToken()
-
-    const teams = useTeams()
-    const selectedTeamGroup = useSelectedTeamGroup(teams)
-
-    if (!selectedTeamGroup || selectedTeamGroup.length === 0) {
-        return { groupContent: null, formattedGroupName: null };
-    }
-
-    const groupName = selectedTeamGroup[0].group;
-    const formattedGroupName = groupName.replace('Group ', '');
-
-    let groupContent = null;
-
-    if (groupName === 'Group A' || groupName === 'Group B') {
-        groupContent = useGroup(selectedTeamGroup, selectedTeam, toggleDarkMode)
-    }
-    return { groupContent, formattedGroupName }
 }
 
 export function useTeamAll() {

@@ -1,16 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpack: (config) => {
+  webpack(config, { isServer }) {
+    const prefix = config.assetPrefix ?? config.basePath ?? '';
     config.module.rules.push({
       test: /\.mp4$/,
-      use: {
+      use: [{
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]',
-          publicPath: '/_next/static/videos',
-          outputPath: 'static/videos',
+          publicPath: `${prefix}/_next/static/media/`,
+          outputPath: `${isServer ? '../' : ''}static/media/`,
+          name: '[name].[hash].[ext]',
         },
-      },
+      }],
     });
     return config
   },
