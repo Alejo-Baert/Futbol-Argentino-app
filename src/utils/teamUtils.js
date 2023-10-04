@@ -1,3 +1,5 @@
+"use client"
+
 import { useTogglesAndToken } from "@/context/TogglesAndTokenContext"
 import useTeams from "@/libs/useTeams"
 

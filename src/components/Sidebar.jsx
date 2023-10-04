@@ -28,14 +28,14 @@ const Sidebar = () => {
     }, [screenSize])
 
     const teamRank = useTeamRank()
-    /* const nextMatch = useFixtureDate()
+    const nextMatch = useFixtureDate()
 
     const selectedTeamIsHome = nextMatch?.teams.home.name === selectedTeam.nameForAPI;
 
     const condition = selectedTeamIsHome ? "Local" : "Visitante"
 
     const opponentTeamName = selectedTeamIsHome ? nextMatch?.teams.away.name : nextMatch?.teams.home.name;
-    const opponentTeamLogo = selectedTeamIsHome ? nextMatch?.teams.away.logo : nextMatch?.teams.home.logo; */
+    const opponentTeamLogo = selectedTeamIsHome ? nextMatch?.teams.away.logo : nextMatch?.teams.home.logo;
 
     // via-neutral-50 via-gray-700 bg-gradient-to-t from-transparent to-transparent 
 
@@ -91,7 +91,7 @@ const Sidebar = () => {
 
                         <div className={`${styles.containerStyles} ${styles.containerStyles} ${toggleDarkMode ? styles.containerLightSidebar : styles.containerDarkSidebar} mx-4`}>
                             <h1 className={`${styles.headText} ${toggleDarkMode ? styles.headTextLight : styles.headTextDark}`}>Próximo partido</h1>
-                            {/* {nextMatch && nextMatch ? (
+                            {nextMatch ? (
                                 <div className="flex flex-col py-4 items-center gap-4">
                                     <span className={` flex flex-col gap-2 items-center`}>
                                         <p className="text-lg font-semibold uppercase">{condition}</p>
@@ -110,6 +110,7 @@ const Sidebar = () => {
                                             />
                                             <span className="uppercase text-lg font-bold text-center">
 
+                                                {/* <br className="lg:block hidden" /> */}
                                                 {opponentTeamName}
                                             </span>
                                         </span>
@@ -119,7 +120,7 @@ const Sidebar = () => {
                                 height="h-auto"
                                 size="lg:w-18 lg:h-18"
                                 textClassname='hidden'
-                            />} */}
+                            />}
                         </div>
                     </div>
                 </div>

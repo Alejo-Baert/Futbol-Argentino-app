@@ -1,4 +1,6 @@
-/* import { useFixtures } from "@/libs/useTeams"
+"use client"
+
+import { useFixtures } from "@/libs/useTeams"
 
 export function useFixtureDate() {
     const fixtures = useFixtures()
@@ -30,4 +32,4 @@ export function useFixtureDate() {
     }
 
     return nextMatch
-} */
+}
