@@ -75,18 +75,13 @@ const Sidebar = () => {
 
                     <div>
                         <div className="text-center py-4">
-                            {teamRank && teamRank ? (
+                            {teamRank ? (
                                 <span className={`flex justify-center items-center gap-2 py-2`}>
                                     <p className="font-bold text-2xl">{teamRank}°</p>
                                     <p>Posición en Liga</p>
                                 </span>
-                            ) : (
-                                <Loading
-                                    height="h-auto"
-                                    size="lg:w-18 lg:h-18"
-                                    textClassname='hidden'
-                                />
-                            )}
+                            ) : <p>Cargando...</p>
+                            }
                         </div>
 
                         <div className={`${styles.containerStyles} ${styles.containerStyles} ${toggleDarkMode ? styles.containerLightSidebar : styles.containerDarkSidebar} mx-4`}>
@@ -116,11 +111,14 @@ const Sidebar = () => {
                                         </span>
                                     </div>
                                 </div>
-                            ) : <Loading
+                            ) : (
+                                <p>Cargando...</p>
+                                /* <Loading
                                 height="h-auto"
                                 size="lg:w-18 lg:h-18"
                                 textClassname='hidden'
-                            />}
+                            /> */
+                            )}
                         </div>
                     </div>
                 </div>

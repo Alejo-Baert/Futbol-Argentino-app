@@ -12,14 +12,14 @@ const page = () => {
 
   return (
     <section className="bg-gray-900">
-      {selectedTeam ? (
-        <div className="font-barlow lg:flex">
-          <Sidebar />
-          <Dashboard />
-        </div>
-      )
-        : <Loading />
-      }
+      {/* {selectedTeam ? ( */}
+      <div className="font-barlow lg:flex">
+        <Sidebar />
+        <Dashboard />
+      </div>
+      {/* )
+        : <p>Cargando...</p>
+      } */}
     </section>
   )
 }

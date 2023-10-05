@@ -1,6 +1,5 @@
 import { useTogglesAndToken } from "@/context/TogglesAndTokenContext"
-import useTeams from "@/libs/useTeams"
-import { useGroupAorB, useSelectedTeamGroup } from "@/utils/teamUtils"
+import { useGroupAorB } from "@/utils/teamUtils"
 
 import styles from "@/styles"
 
