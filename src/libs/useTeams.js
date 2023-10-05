@@ -8,7 +8,7 @@ const useTeams = () => {
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "v3.football.api-sports.io",
-                "x-rapidapi-key": process.env.API_KEY_FUTBOL
+                "x-rapidapi-key": process.env.NEXT_PUBLIC_API_KEY_FUTBOL
             }
         })
         const data = await response.json();
@@ -30,7 +30,7 @@ const useFixtures = () => {
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "v3.football.api-sports.io",
-                "x-rapidapi-key": process.env.API_KEY_FUTBOL
+                "x-rapidapi-key": process.env.NEXT_PUBLIC_API_KEY_FUTBOL
             }
         })
         const fixturesData = await response.json()

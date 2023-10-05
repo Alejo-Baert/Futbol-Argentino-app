@@ -15,9 +15,6 @@ const nextConfig = {
     });
     return config
   },
-  env: {
-    API_KEY_FUTBOL: process.env.API_KEY
-  },
   images: {
     domains: ["media-4.api-sports.io"],
   },

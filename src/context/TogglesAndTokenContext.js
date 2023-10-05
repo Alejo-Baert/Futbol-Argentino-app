@@ -22,10 +22,6 @@ export function TogglesAndTokenProvider({ children }) {
     const [tokenTeam, setTokenTeam] = useState(null)
     const [screenSize, setScreenSize] = useState(undefined)
 
-    const selectedTeam = equipos.find((equipo) => {
-        return equipo.nameForAPI === tokenTeam
-    })
-
     useEffect(() => {
         const handleResize = () => setScreenSize(window.innerWidth)
         window.addEventListener('resize', handleResize)
@@ -35,7 +31,7 @@ export function TogglesAndTokenProvider({ children }) {
         return () => {
             window.removeEventListener('resize', handleResize)
         }
-    }, [])
+    }, [screenSize, setScreenSize])
 
     /* useEffect(() => {
         if (typeof window !== 'undefined' && window.localStorage) {
@@ -59,6 +55,10 @@ export function TogglesAndTokenProvider({ children }) {
          }
      }, [pathname, selectedTeam]) */
 
+    const selectedTeam = equipos.find((equipo) => {
+        return equipo.nameForAPI === tokenTeam
+    })
+
     useEffect(() => {
         if (typeof window !== 'undefined' && window.localStorage) {
             let getTeam = localStorage.getItem("selectedTeam")
@@ -75,8 +75,7 @@ export function TogglesAndTokenProvider({ children }) {
             router.push('/')
             return
         }
-    }, [pathname, selectedTeam, tokenTeam])
-
+    }, [pathname, selectedTeam, tokenTeam, setTokenTeam])
 
     const handleTeamSelection = (teamName) => {
         if (typeof window !== "undefined" && window.localStorage) {

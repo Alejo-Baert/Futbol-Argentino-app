@@ -13,9 +13,6 @@ module.exports = {
         mulish: ['var(--font-mulish)'],
         barlow: ['var(--font-barlow)']
       },
-      boxShadow: {
-        'box-dashboard': '0 3px 10px rgb(0,0,0,0.2)'
-      },
     },
   },
   plugins: [],
