@@ -8,18 +8,18 @@ import { useTogglesAndToken } from "@/context/TogglesAndTokenContext"
 
 const page = () => {
 
-  const { selectedTeam } = useTogglesAndToken()
+  const { tokenTeam } = useTogglesAndToken()
 
   return (
     <section className="bg-gray-900">
-      {/* {selectedTeam ? ( */}
-      <div className="font-barlow lg:flex">
-        <Sidebar />
-        <Dashboard />
-      </div>
-      {/* )
-        : <p>Cargando...</p>
-      } */}
+      {tokenTeam ? (
+        <div className="font-barlow lg:flex">
+          <Sidebar />
+          <Dashboard />
+        </div>
+      )
+        : <Loading />
+      }
     </section>
   )
 }

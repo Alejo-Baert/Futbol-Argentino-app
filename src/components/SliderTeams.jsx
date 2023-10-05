@@ -13,7 +13,7 @@ import "slick-carousel/slick/slick-theme.css"
 
 const SliderTeams = () => {
 
-    const { selectedTeam, handleTeamSelection } = useTogglesAndToken()
+    const { tokenTeam, handleTeamSelection } = useTogglesAndToken()
 
     const settings = {
         infinite: true,
@@ -23,7 +23,7 @@ const SliderTeams = () => {
 
     return (
         <section className="max-w-[450px] mx-auto font-mulish text-[--white] relative ">
-            {selectedTeam
+            {tokenTeam
                 ? <Loading />
                 : (
                     <div className="mt-8">
