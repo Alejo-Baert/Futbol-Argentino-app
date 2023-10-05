@@ -63,7 +63,9 @@ export function TogglesAndTokenProvider({ children }) {
         if (typeof window !== 'undefined' && window.localStorage) {
             let getTeam = localStorage.getItem("selectedTeam")
 
-            setTokenTeam(getTeam)
+            if (getTeam) {
+                setTokenTeam(getTeam)
+            }
         }
 
         if (tokenTeam && pathname === '/') {
