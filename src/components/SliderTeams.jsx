@@ -40,7 +40,7 @@ const SliderTeams = () => {
                                     onClick={() => handleTeamSelection(equipo.nameForAPI)}
                                 >
                                     <div>
-                                        <Image
+                                        <img
                                             src={equipo.img}
                                             className="w-full object-cover cursor-pointer"
                                             alt={`club-${equipo.name}`}
