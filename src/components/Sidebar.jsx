@@ -111,14 +111,8 @@ const Sidebar = () => {
                                         </span>
                                     </div>
                                 </div>
-                            ) : (
-                                <p>Cargando...</p>
-                                /* <Loading
-                                height="h-auto"
-                                size="lg:w-18 lg:h-18"
-                                textClassname='hidden'
-                            /> */
-                            )}
+                            ) : <p className="text-center py-2">No hay partidos :(</p>
+                            }
                         </div>
                     </div>
                 </div>
