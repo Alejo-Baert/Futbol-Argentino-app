@@ -111,7 +111,7 @@ const Sidebar = () => {
                                         </span>
                                     </div>
                                 </div>
-                            ) : <p className="text-center py-2">No hay partidos :(</p>
+                            ) : <p className="text-center py-2">Cargando...</p>
                             }
                         </div>
                     </div>

@@ -17,7 +17,7 @@ const useTeams = () => {
 
     }
 
-    const { data: teams } = useSWRImmutable('https://v3.football.api-sports.io/standings?league=1032&season=2023', fetcher)
+    const { data: teams } = useSWRImmutable('https://v3.football.api-sports.io/standings?league=1032&season=2024', fetcher)
 
     return teams || []
 }
@@ -39,7 +39,7 @@ const useFixtures = () => {
 
     }
 
-    const { data: fixtures } = useSWRImmutable('https://v3.football.api-sports.io/fixtures?league=1032&season=2023', fetcher)
+    const { data: fixtures } = useSWRImmutable('https://v3.football.api-sports.io/fixtures?league=1032&season=2024', fetcher)
 
     return fixtures || []
 }

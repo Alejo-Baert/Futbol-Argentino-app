@@ -48,31 +48,38 @@ const PieChartStats = () => {
                 <div className="flex items-center justify-center py-8">
                     <div className='w-full'>
                         <div className='w-[250px] mx-auto'>
-                            <PieChart
-                                data={statsData}
-                                label={({ dataEntry }) => `${Math.round((dataEntry.value / totalPartidos) * 100)}%`}
-                                labelStyle={labelStyle}
-                                animate
-                                animationDuration={1000}
-                            />
+                            {totalPartidos ?
+                                <PieChart
+                                    data={statsData}
+                                    label={({ dataEntry }) => `${Math.round((dataEntry.value / totalPartidos) * 100)}%`}
+                                    labelStyle={labelStyle}
+                                    animate
+                                    animationDuration={1000}
+                                />
+
+                                : <p>Todavía no hubo partidos jugados</p>
+                            }
                         </div>
 
-                        <div className={`border-y ${toggleDarkMode ? 'border-gray-200' : 'border-gray-700'} flex justify-around mt-8 py-4 `}>
-                            {statsData.map((data, index) => (
-                                <div className="text-center" key={index}>
-                                    <div className={`${data.TextColor} flex flex-col items-center gap-2`}>
-                                        <span className='font-bold text-xl'>{data.value}</span>
-                                        <p className='font-bold'>{data.title}</p>
-                                    </div>
+                        {totalPartidos ? (
+                            <>
+                                <div className={`border-y ${toggleDarkMode ? 'border-gray-200' : 'border-gray-700'} flex justify-around mt-8 py-4 `}>
+                                    {statsData.map((data, index) => (
+                                        <div className="text-center" key={index}>
+                                            <div className={`${data.TextColor} flex flex-col items-center gap-2`}>
+                                                <span className='font-bold text-xl'>{data.value}</span>
+                                                <p className='font-bold'>{data.title}</p>
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
-                            ))}
-                        </div>
-
-
-                        <div className='flex items-center mt-8 justify-center gap-2'>
-                            <p className='font-bold text-xl border px-4 py-1 rounded-full'>{efectividad}%</p>
-                            <p>de efectividad</p>
-                        </div>
+                            
+                                <div className='flex items-center mt-8 justify-center gap-2'>
+                                    <p className='font-bold text-xl border px-4 py-1 rounded-full'>{efectividad}%</p>
+                                    <p>de efectividad</p>
+                                </div>
+                            </>
+                        ) : ""}
 
                     </div>
                 </div>
